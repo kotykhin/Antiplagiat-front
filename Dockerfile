@@ -1,7 +1,7 @@
 FROM node:lts-alpine
 
 # устанавливаем простой HTTP-сервер для статики
-RUN npm install -g http-server
+RUN npm install -g serve
 
 # делаем каталог 'app' текущим рабочим каталогом
 WORKDIR /app
@@ -18,5 +18,5 @@ COPY . .
 # собираем приложение для production с минификацией
 RUN npm run build
 
-EXPOSE 8080
-CMD [ "http-server", "dist" ]
+EXPOSE 80
+CMD [ "serve", "dist", "-p", "80" ]

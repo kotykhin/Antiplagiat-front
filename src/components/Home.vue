@@ -87,7 +87,6 @@ export default {
     conclusion: {
       percent: 0,
       time: 0,
-      conclusion: "yess",
     },
   }),
   methods: {
@@ -97,7 +96,7 @@ export default {
       this.isLoading = true;
       console.log(this.form);
       return this.axios
-        .post("/check", this.form)
+        .post("http://localhost:8080/check", this.form)
         .then((response) => {
           console.log(response.data);
           //parse answer from api
@@ -117,7 +116,7 @@ export default {
     initTopics() {
       this.isLoading = true;
       return this.axios
-        .get("/topics/" + this.form.language)
+        .get("http://localhost:8080/topics/" + this.form.language)
         .then((response) => {
           console.log(response.data);
           this.topics = response.data.message;
