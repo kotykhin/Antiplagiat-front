@@ -97,7 +97,7 @@ export default {
       this.isLoading = true;
       console.log(this.form);
       return this.axios
-        .post("http://127.0.0.1:8000/check", this.form)
+        .post("/check", this.form)
         .then((response) => {
           console.log(response.data);
           //parse answer from api
@@ -117,7 +117,7 @@ export default {
     initTopics() {
       this.isLoading = true;
       return this.axios
-        .get("http://127.0.0.1:8000/topics/" + this.form.language)
+        .get("/topics/" + this.form.language)
         .then((response) => {
           console.log(response.data);
           this.topics = response.data.message;
